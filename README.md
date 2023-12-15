@@ -1,8 +1,16 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+xxinside - 게시판
+===============
 
-Currently, two official plugins are available:
+## 기술
+ - React, Firebase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+ ## 현재 기능
+ - 글 작성, 글 열람, 탭에 따라 글 분류해서 보기
+
+
+ ## 추가 예정 기능
+ - 로그인, 제목으로 검색기능
+
+ 
