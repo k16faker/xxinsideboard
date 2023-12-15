@@ -30,6 +30,7 @@ const HomePage = () => {
       postsData.sort((a, b) => b.date - a.date);
       setData(postsData);
     });
+    console.log(data);
   };
 
 

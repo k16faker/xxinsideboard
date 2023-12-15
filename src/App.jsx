@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootPage from "./pages/RootPage";
 import HomePage from "./pages/HomePage";
 import WritingPage from "./pages/WritingPage";
+import DetailBoardPage from "./pages/DetailBoardPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,6 +20,10 @@ function App() {
         {
           path: "writing",
           element: <WritingPage />,
+        },
+        {
+          path:":id",
+          element: <DetailBoardPage />,
         }
       ],
     }

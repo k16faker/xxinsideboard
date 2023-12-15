@@ -1,5 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../../store/datadrill";
+
 const SimpleWrited = (props) => {
   const { data } = props;
+
+  const dispatch = useDispatch();
+
+  const navigation = useNavigate();
+
+  const dataSendHandler = () => {
+    dispatch(dataActions.addData(data));
+  };
 
   function dateFormat(date) {
     let month = date.getMonth() + 1;
@@ -38,7 +50,14 @@ const SimpleWrited = (props) => {
         {data.tab}
       </p>
       <div className="flex w-11/12 justify-between mr-2">
-        <p>{data.title}</p>
+        <p
+          onClick={() => {
+            navigation(`/${data.key}`);
+            dataSendHandler();
+          }}
+        >
+          {data.title}
+        </p>
         <p>{data.name}</p>
       </div>
     </li>
