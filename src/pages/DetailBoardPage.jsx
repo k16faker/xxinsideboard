@@ -1,16 +1,36 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { app } from "../components/firebase";
+import { getFirestore, doc, deleteDoc } from "firebase/firestore";
 
 const DetailBoardPage = () => {
+  const passwordRef = useRef();
+
+
+  const navigation = useNavigate();
   const data = useSelector((state) => state.data.data);
   const params = useParams();
   const [detailData] = useState(data);
-  console.log(data);
-  console.log(params);
+
+  const db = getFirestore(app);
+
+  const deleteHandler = async ( ) => {
+    if(passwordRef.current.value === detailData.password){
+      await deleteDoc(doc(db, "posts", params.id));
+      alert("삭제되었습니다.")
+      navigation("/");
+    } else {
+      alert("비밀번호가 틀렸습니다.");
+    }
+  };
+
+
   return (
     <Fragment>
-      <div className="w-6/12 mx-auto mt-10 border border-slate-500 p-1">
+      <div className="w-6/12 mx-auto mt-10 border border-slate-500 p-2">
         <div className="flex items-center border-y border-slate-500 p-2 bg-slate-300">
           <p className=" border rounded-lg border-black p-0.5 bg-slate-900 text-slate-50 font-bold">
             {detailData.tab}
@@ -24,7 +44,8 @@ const DetailBoardPage = () => {
           <p className="p-3 mt-3">{detailData.content}</p>
         </div>
         <div className="border-t border-slate-500 p-3">
-          <button className="border p-2">삭제</button>
+          <input type="text" placeholder="글 비밀번호" ref={passwordRef} className="border border-slate-500 p-1" />
+          <button onClick={deleteHandler} className="border p-2">삭제</button>
         </div>
       </div>
     </Fragment>

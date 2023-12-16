@@ -58,8 +58,11 @@ const WritingForm = () => {
           />
           <input
             type="text"
-            placeholder="비밀번호"
+            placeholder="비밀번호(숫자 4자리)"
             className="w-9/12 mx-auto text-center border-2 rounded-xl border-black"
+            pattern="[0-9]+"
+            minLength="4"
+            maxLength="4"
             ref={passwordRef}
             required
           />

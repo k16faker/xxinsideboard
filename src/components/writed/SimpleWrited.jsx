@@ -51,6 +51,7 @@ const SimpleWrited = (props) => {
       </p>
       <div className="flex w-11/12 justify-between mr-2">
         <p
+          className="ml-3 cursor-pointer hover:underline"
           onClick={() => {
             navigation(`/${data.key}`);
             dataSendHandler();
