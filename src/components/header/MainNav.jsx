@@ -22,8 +22,8 @@ const MainNav = () => {
             </li>
           </ul>
         </nav>
-        <ul className="lg:hidden mr-6 text-slate-100 absolute items-align" onClick={() => setIsView(!isView)} >
-          dropdown{" "}
+        <ul className="lg:hidden mr-6 text-slate-100 absolute items-center content-center" onClick={() => setIsView(!isView)} >
+          menu{" "}
           {isView ? '⌃' : '⌄'}
           {isView && <DropDown className="bg-slate-700 text-slate-100"/>}
         </ul>
