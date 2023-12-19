@@ -11,7 +11,9 @@ import {
 
 import SimpleWrited from "../components/writed/SimpleWrited";
 
+
 const HomePage = () => {
+  const apiKey = import.meta.env.VITE_APP_API_KEY;
   const navigation = useNavigate();
   const [data, setData] = useState();
   const [selectedTab, setSelectedTab] = useState("전체");
@@ -86,7 +88,7 @@ const HomePage = () => {
 
   const fetchWeather = async (lat, lon) => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=0c124de49a4e31a108160eabc61e3d3c&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     );
     const data = await response.json();
     setWeatherData(data);
@@ -123,25 +125,25 @@ const HomePage = () => {
 
 
   return (
-    <div className="w-full text-center mt-10 flex">
-      <div className="w-4/12 border-2 border-slate-400 m-2">
+    <div className="w-full text-center mt-10 lg:flex md:grid sm:grid">
+      <div className="lg:w-4/12 md:w-11/12 sm:w-11/12 border-2 border-slate-400 m-2">
         <div className="flex mt-4 w-1/2 mx-auto justify-between">
           <div className="border py-1 px-2 rounded-lg bg-slate-700 text-slate-100">
             <p>현재 온도</p>
-            <p>{weatherData.main?.temp ? weatherData.main?.temp : <p>Loading...</p>}</p>
+            <p>{weatherData.main?.temp ? weatherData.main?.temp : 'Loading...'}</p>
           </div>
           <div className="border py-1 px-2 rounded-lg bg-slate-700 text-slate-100">
             <p>체감 온도</p>
-            <p>{weatherData.main?.feels_like ? weatherData.main?.feels_like : <p>Loading...</p>}</p>
+            <p>{weatherData.main?.feels_like ? weatherData.main?.feels_like : 'Loading...'}</p>
           </div>
           <div className="border py-1 px-2 rounded-lg bg-slate-700 text-slate-100">
             <p>현재 습도</p>
-            <p>{weatherData.main?.humidity ? weatherData.main?.humidity : <p>Loading...</p>}</p>
+            <p>{weatherData.main?.humidity ? weatherData.main?.humidity : 'Loading...'}</p>
           </div>
         </div>
         <div className="my-10 border py-1 px-2 rounded-lg bg-slate-700 text-slate-100 w-3/12 mx-auto">
           <p>날씨</p>
-          <p>{weatherData.weather?.[0].description ? weatherData.weather?.[0].description : <p>Loading...</p>}</p>
+          <p>{weatherData.weather?.[0].description ? weatherData.weather?.[0].description : 'Loading...'}</p>
         </div>
         <div className="my-5 border py-1 px-2 rounded-lg bg-slate-700 text-slate-100 mx-10">
           <p>옷 추천</p>
@@ -154,7 +156,7 @@ const HomePage = () => {
           <div className="mx-auto" ref={ref} id="map" style={{width:"80%", height: "400px"}}></div>
         </div>
       </div>
-      <div className="w-4/12 mx-auto">
+      <div className="lg:w-4/12 sm:w-11/12 md:w-11/12 mx-auto">
         <div className="mx-auto text-left justify-between flex">
           <div>
             <button

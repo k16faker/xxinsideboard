@@ -9,7 +9,7 @@ const MainNav = () => {
   return (
     <header className="justify-between flex h-12 items-center bg-slate-700">
       <div className="w-1/12 text-center">
-        <h1 className="font-bold text-3xl text-slate-100"><Link to='/'>XX-Inside</Link></h1>
+        <h1 className="font-bold lg:text-3xl sm:text-xl md:text-xl text-slate-100"><Link to='/'>XX-Inside</Link></h1>
       </div>
       <div className="w-1/6 text-center">
         <nav>
