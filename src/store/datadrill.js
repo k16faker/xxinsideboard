@@ -16,3 +16,4 @@ export const dataActions = dataSlice.actions;
 
 
 export default dataSlice.reducer;
+

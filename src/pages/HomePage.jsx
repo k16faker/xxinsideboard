@@ -66,14 +66,6 @@ const HomePage = () => {
     console.log(isSearching);
   };
 
-  const checkLocation = async () => {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      console.log(position.coords.latitude, position.coords.longitude);
-      setLatitude(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-    });
-  };
-
   function getUserLocation(callback) {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -113,9 +105,9 @@ const HomePage = () => {
     clothes = "패딩, 두꺼운 코트, 목도리, 기모제품, 기모속옷, 기모바지, 기모양말, 장화, 장갑, 귀마개, 모자"
   } else if(weatherData.main?.temp < 10 && weatherData.main?.temp >= 0) {
     clothes = "코트, 가죽자켓, 히트텍, 니트, 기모제품, 기모속옷, 기모바지, 기모양말, 장화, 장갑, 귀마개, 모자"
-  } else if(weatherData.main?.temp < 20 && weatherData.main?.temp >= 10) {
+  } else if(weatherData.main?.temp < 15 && weatherData.main?.temp >= 10) {
     clothes = "자켓, 가디건, 야상, 청자켓, 니트, 스타킹, 청바지, 면바지, 슬랙스, 스커트, 원피스, 가죽신, 구두, 부츠, 스니커즈, 베레모, 모자"
-  } else if(weatherData.main?.temp < 25 && weatherData.main?.temp >= 20) {
+  } else if(weatherData.main?.temp < 25 && weatherData.main?.temp >= 15) {
     clothes = "얇은 가디건, 긴팔티, 면바지, 슬랙스, 스커트, 원피스, 샌들, 구두, 스니커즈, 베레모, 모자"
   } else if(weatherData.main?.temp >= 25) {
     clothes = "민소매, 반팔, 반바지, 원피스, 샌들, 슬리퍼, 스니커즈, 모자"

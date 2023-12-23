@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef } from "react";
+import { Fragment, useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const DetailBoardPage = () => {
   const navigation = useNavigate();
   const data = useSelector((state) => state.data.data);
   const params = useParams();
-  const [detailData] = useState(data);
+  const [detailData, setDetailData] = useState(data);
 
   const db = getFirestore(app);
 
@@ -26,6 +26,11 @@ const DetailBoardPage = () => {
       alert("비밀번호가 틀렸습니다.");
     }
   };
+
+  useEffect(() => {
+    setDetailData(data);
+  }, []);
+
 
 
   return (
